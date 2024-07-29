@@ -5,11 +5,9 @@ sed
 awk
 tr
 cp
-cut
-ls
+cut ls
 grep
 xargs
-rg
 ps
 mv
 kill
@@ -40,3 +38,5 @@ chmod
 chown
 make
 ln
+curl
+wget
