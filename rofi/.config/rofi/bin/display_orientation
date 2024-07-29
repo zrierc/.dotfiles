@@ -1,0 +1,124 @@
+#!/usr/bin/env bash
+# current theme
+type="$HOME/.config/rofi/conf"
+style="applets-vertical.rasi"
+theme="$type/$style"
+
+prompt='Display Orientation'
+monitors=$(xrandr | grep -iw "connected" | wc -l)
+# monitors=$(xrandr --listactivemonitors | grep -i 'monitor' | cut -d':' -f2);
+
+# rofi window layout configuration
+list_col='1'
+list_row='4'
+win_width='120px'
+
+# Options
+layout=$(cat ${theme} | grep 'USE_ICON' | cut -d'=' -f2)
+if [[ "$layout" == 'NO' ]]; then
+  pconly="󰌢 PC Screen Only"
+  extend="󰌢 󰍹 Extend"
+  duplicate="󰍺 Duplicate"
+  secondscreen="󰍹 Second Screen Only"
+else
+  pconly="󰌢 "
+  extend="󰌢 󰍹 "
+  duplicate="󰍺 "
+  secondscreen="󰍹 "
+fi
+
+# Rofi CMD
+rofi_cmd() {
+  rofi -theme-str "window {width: $win_width;}" \
+    -theme-str "listview {columns: $list_col; lines: $list_row;}" \
+    -theme-str 'element-text {horizontal-align: 0.4;}' \
+    -dmenu \
+    -p "$prompt" \
+    -markup-rows \
+    -theme ${theme}
+}
+
+# Confirmation menu/modal
+confirm_cmd() {
+  rofi -dmenu \
+    -p "Confirmation" \
+    -mesg "Set 2nd monitor as primary display?" \
+    -theme "$type/confirm.rasi"
+}
+
+confirm_selection() {
+  echo -e "$yes\n$no" | confirm_cmd
+}
+
+# Pass variables to rofi dmenu
+run_rofi() {
+  echo -e "$pconly\n$extend\n$duplicate\n$secondscreen" | rofi_cmd
+}
+
+# show notification when display changes
+show_notification() {
+  notify_cmd='dunstify -u low -t 500 --replace=420'
+  ${notify_cmd} "$1"
+}
+
+### START OF ???
+# notify display orientation
+# notify_view() {
+#   notify_cmd='dunstify -u low -t 500 --replace=420'
+#   ${notify_cmd} "$1"
+# }
+#
+# rdialog() {
+#   rofi -dmenu -i -no-fixed-num-lines \
+#     -p "Set 2nd monitor as primary display? [Y/n] : " \
+#     -theme "$type/confirm.rasi"
+# }
+
+# Display Help
+# show_msg() {
+#   rofi -theme "$type/askpass.rasi" -e "Options [Y/n]: "
+# }
+
+# show_err() {
+#   notify_view " 2nd monitor not connected!"
+# }
+### END OF ???
+
+# display mode switcher
+run_cmd() {
+  if [[ "$1" == '--pconly' ]]; then
+    xrandr --output eDP --primary --auto --output HDMI-A-0 --off
+  elif [[ "$1" == '--extend' ]]; then
+    ans=$(confirm_selection &)
+    if [[ $ans == "$yes" ]]; then
+      xrandr --output HDMI-A-0 --primary --auto --rotate normal --left-of eDP
+    else
+      xrandr --output eDP --primary --auto --output HDMI-A-0 --auto --rotate normal --left-of eDP
+    fi
+  elif [[ "$1" == '--duplicate' ]]; then
+    xrandr --output eDP --primary --output HDMI-A-0 --auto --same-as eDP
+  elif [[ "$1" == '--secondscreen' ]]; then
+    xrandr --output HDMI-A-0 --primary --auto --output eDP --off
+  fi
+}
+
+# check connected monitors
+if (($monitors >= 2)); then
+  chosen="$(run_rofi)"
+  case "$chosen" in
+  $pconly)
+    run_cmd --pconly
+    ;;
+  $extend)
+    run_cmd --extend
+    ;;
+  $duplicate)
+    run_cmd --duplicate
+    ;;
+  $secondscreen)
+    run_cmd --secondscreen
+    ;;
+  esac
+else
+  show_notification " 2nd monitor not connected!"
+fi

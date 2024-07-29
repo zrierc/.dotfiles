@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+dir="$HOME/.config/rofi/conf"
+
+if [[ $1 == '--extended' ]]; then
+  theme='launcher-extended'
+else
+  theme='launcher'
+fi
+
+## Run
+rofi \
+  -show drun \
+  -calc-command "echo -n '{result}' | xclip -selection clipboard" \
+  -no-persist-history \
+  -theme ${dir}/${theme}.rasi

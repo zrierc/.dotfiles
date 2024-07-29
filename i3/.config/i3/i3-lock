@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+## NOTE: This is require i3lock-color to work
+## base i3lock won't work
+## Visit https://github.com/Raymo111/i3lock-color
+
+LINE='#11111b'
+RING='#181825'
+BASE='#1e1e2e'
+BLANK='#1f1d2e80'
+SEP='#000000'
+TEXT='#cdd6f4'
+WRONG='#f38ba8'
+MAUVE='#cba6f7'
+
+i3lock \
+  --nofork \
+  -t \
+  -e \
+  \
+  --insidever-color=$BASE \
+  --ringver-color=$MAUVE \
+  \
+  --insidewrong-color=$WRONG \
+  --ringwrong-color=$WRONG \
+  \
+  --inside-color=$BASE \
+  --ring-color=$RING \
+  --line-color=$LINE \
+  --separator-color=$SEP \
+  \
+  --verif-color=$TEXT \
+  --wrong-color=$RING \
+  --time-color=$TEXT \
+  --date-color=$TEXT \
+  --layout-color=$BLANK \
+  --keyhl-color=$MAUVE \
+  --bshl-color=$WRONG \
+  \
+  --screen 1 \
+  --blur 8 \
+  --clock \
+  --indicator \
+  --time-str="%I:%M %p" \
+  --date-str="%a, %b %e"
