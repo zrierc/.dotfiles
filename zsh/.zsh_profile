@@ -1,0 +1,24 @@
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.local/share
+
+VI="vim"
+VIM="nvim"
+
+export GIT_EDITOR=$VIM
+export DOTFILES=$HOME/.config/dotfiles
+
+export PATH=$HOME/.local/scripts:$PATH
+export PATH=$HOME/.local/bin:$PATH
+
+# start search dir and enter to tmux
+bindkey -s "^f" "^Qtmux-sessionizer^M"
+
+# McFly settings
+export MCFLY_KEY_SCHEME=vim
+export MCFLY_FUZZY=2
+export MCFLY_RESULTS=25
+export MCFLY_PROMPT="❯"
+export MCFLY_HISTORY_LIMIT=5000
+
+# fzf settings
+export FZF_DEFAULT_OPTS="--layout reverse"
