@@ -5,6 +5,8 @@ alias svi='sudo vi'
 alias vim='nvim'
 alias edit='nvim'
 
+alias lg='lazygit'
+
 ## in memoriam of Terry A. Davis
 # -Taken from TempleOS source code/repository
 godsWords() {
