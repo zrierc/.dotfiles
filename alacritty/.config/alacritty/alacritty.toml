@@ -1,0 +1,23 @@
+import = ["~/.config/alacritty/themes/hardhacker.toml"]
+[window]
+opacity = 0.98
+blur = true
+padding.x = 10
+padding.y = 10
+
+[font]
+size = 8.0
+normal.family = "BerkeleyMono Nerd Font"
+bold.family = "BerkeleyMono Nerd Font"
+italic.family = "BerkeleyMono Nerd Font"
+bold_italic.family = "BerkeleyMono Nerd Font"
+
+# normal.family = "FiraCode Nerd Font"
+# bold.family = "FiraCode Nerd Font"
+# italic.family = "FiraCode Nerd Font"
+# bold_italic.family = "FiraCode Nerd Font"
+
+[cursor]
+style.shape = "Beam"
+style.blinking = "On"
+vi_mode_style.shape = "Block"
