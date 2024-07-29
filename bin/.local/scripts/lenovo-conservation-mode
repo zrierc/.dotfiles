@@ -1,0 +1,21 @@
+#!/bin/bash
+set -e
+
+# conservation mode path on unit-00'
+CONSERVATION_MODE_PATH="/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode"
+
+# show current state
+showState() {
+  echo -e "[INFO]\tCurrent Conservation Mode State: $(cat $CONSERVATION_MODE_PATH)"
+}
+
+# switch either to turn on or off 
+if grep -q 0 "$CONSERVATION_MODE_PATH"; then
+  echo -e "[INFO]\tTurning on Conservation Mode"
+  echo -e 1 | tee $CONSERVATION_MODE_PATH
+  showState
+elif grep -q 1 "$CONSERVATION_MODE_PATH"; then 
+  echo -e "[INFO]\tTurning off Conservation Mode"
+  echo -e 0 | tee $CONSERVATION_MODE_PATH
+  showState
+fi
