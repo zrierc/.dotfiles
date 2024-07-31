@@ -1,6 +1,6 @@
 # Personal Dotfiles
 
-Yo! This is my personal ricing.
+Yo! This is my ricing.
 
 <p align="center">
   <img src="https://pbs.twimg.com/media/GTp1mJNa0AAscY9?format=jpg&name=900x900" >
