@@ -5,7 +5,8 @@ sed
 awk
 tr
 cp
-cut ls
+cut
+ls
 grep
 xargs
 ps
