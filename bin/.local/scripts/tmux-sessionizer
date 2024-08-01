@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [[ $# -eq 1 ]]; then
-  selected=$1
+  selected="$(pwd)/$1"
 else
   # selected=$(find ~ ~/Devs ~/Devs/learn ~/Devs/college ~/Devs/sandbox ~/Devs/projects -mindepth 1 -maxdepth 1 -type d | fzf)
   selected=$(fd ~ ~/Devs ~/Devs/learn ~/Devs/college ~/Devs/sandbox ~/Devs/projects \
