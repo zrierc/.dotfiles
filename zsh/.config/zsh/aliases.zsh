@@ -5,7 +5,12 @@ alias svi='sudo vi'
 alias vim='nvim'
 alias edit='nvim'
 
+alias neofetch='fastfetch'
+alias minfetch="fastfetch -c ~/.config/fastfetch/config-min.jsonc"
+
+# shortcut
 alias lg='lazygit'
+alias ts='tmux-sessionizer'
 
 ## in memoriam of Terry A. Davis
 # -Taken from TempleOS source code/repository
