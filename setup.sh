@@ -20,7 +20,7 @@ cmd() {
   ## explicit / whitelist
   # dirs="alacritty,bin,dunst,i3,lazygit,nvim,picom,polybar,rofi,starship,tmux,zsh"
 
-  ## all
+  ## all except dir that started with .* (e.g. .git)
   dirs=($(find . -maxdepth 1 -type d -name '*' ! -name '.*' | tr -d './'))
 
   for folder in "${dirs[@]}"; do

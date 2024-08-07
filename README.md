@@ -52,11 +52,16 @@ and enter the directory
     stow nvim
     ```
 
-    Or stow for all configuration:
+    Or stow for all configuration using `setup.sh`:
 
     ```bash
-    stow .
+    chmod +x ./setup.sh
+    ./setup.sh -i
     ```
+
+    > [!NOTE]
+    > `setup.sh` is installation script for stowing all directories automatically.
+    > Execute `setup.sh --help` to list available options.
 
 ## Uninstall
 
@@ -66,10 +71,10 @@ To uninstall simply unstow with following command:
   stow -D nvim
   ```
 
-  Or unstow all configuration:
+  Or unstow all configuration using `setup.sh`:
 
   ```bash
-  stow -D .
+  ./setup.sh -r
   ```
 
 ---
