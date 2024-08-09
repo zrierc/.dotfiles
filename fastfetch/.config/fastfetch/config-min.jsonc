@@ -31,13 +31,17 @@
       "format": "├┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┤"
     },
     {
-      "type": "version",
-      "key": " ",
-      "format": "│                   FASTFETCH v{version}                   │"
+      "type": "custom",
+      "format": "│                        NERV UN                        │"
     },
     {
       "type": "custom",
       "format": "│                 UNIT-00 MACHINE REPORT                │"
+    },
+    {
+      "type": "version",
+      "key": " ",
+      "format": "│                   FASTFETCH v{version}                   │"
     },
     {
       "type": "custom",
@@ -56,9 +60,19 @@
       "format": "├────────────┼──────────────────────────────────────────┤"
     },
     {
+      "type": "host",
+      "key": "│ MACHINE    │{$1}",
+      "format": "{name}"
+    },
+    {
       "type": "title",
       "key": "│ HOSTNAME   │{$1}",
       "format": "{host-name}"
+    },
+    {
+      "type": "title",
+      "key": "│ USER       │{$1}",
+      "format": "{user-name}"
     },
     {
       "type": "localip",
@@ -69,23 +83,13 @@
       "type": "localip",
       "key": "│ MAC ADDR   │{$1}",
       "format": "{mac} ({ifname})",
-      "showIPv4": false,
+      "showIpv4": true,
       "showMac": true
     },
     {
       "type": "dns",
       "key": "│ DNS        │{$1}",
       "showType": "ipv4"
-    },
-    {
-      "type": "title",
-      "key": "│ USER       │{$1}",
-      "format": "{user-name}"
-    },
-    {
-      "type": "host",
-      "key": "│ MACHINE    │{$1}",
-      "format": "{name}"
     },
     {
       "type": "custom",
