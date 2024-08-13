@@ -240,6 +240,7 @@ bindsym $mod+r mode "resize"
 ###                    Custom configuration                  ###
 ################################################################
 focus_follows_mouse no
+mouse_warping none
 
 # Trackpad bahaviour: enable touch, natural scrolling, double finger to scroll
 exec ~/.local/scripts/touchpad-behaviour.sh
