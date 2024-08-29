@@ -124,3 +124,10 @@ source <(fzf --zsh)
 
 # # Replace <C-r> shell history with intelligent search powered by mcfly
 # eval "$(mcfly init zsh)"
+
+# bun completions
+[ -s "/home/zrie/.bun/_bun" ] && source "/home/zrie/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
