@@ -7,7 +7,7 @@ padding.y = 0
 dynamic_padding = true
 
 [font]
-size = 8.0
+size = 13.0
 normal.family = "BerkeleyMono Nerd Font"
 bold.family = "BerkeleyMono Nerd Font"
 italic.family = "BerkeleyMono Nerd Font"
