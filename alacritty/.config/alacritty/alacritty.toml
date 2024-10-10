@@ -1,4 +1,4 @@
-import = ["~/.config/alacritty/themes/hardhacker.toml"]
+import = ["~/.config/alacritty/themes/rose-pine.toml"]
 [window]
 opacity = 0.98
 blur = true
