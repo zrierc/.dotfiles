@@ -27,6 +27,17 @@ symbol = " "
 [directory]
 read_only = " 󰌾"
 use_os_path_sep = true
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+Documents = "󰈙 Documents"
+Downloads = " Downloads"
+Music = " Music"
+Pictures = " Pictures"
+Videos = "󰤽 Videos"
+dotfiles = " dotfiles"
+Devs = "  Devs"
 
 [docker_context]
 symbol = " "
