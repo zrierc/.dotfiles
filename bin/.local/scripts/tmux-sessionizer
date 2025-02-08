@@ -11,7 +11,7 @@ else
 
   dev=$(fd ~/Devs -p ~/Devs --min-depth 1 --max-depth 3 -t d -E '.git' -E node_modules)
   home=$(fd ~ -p ~ --min-depth 1 --max-depth 1 -t d -H)
-  selected=$(echo -e "$dev\n$home" | fzf --border --height ~100%)
+  selected=$(echo -e "$dev\n$home" | sort -u | fzf --border --height ~100%)
 fi
 
 if [[ -z $selected ]]; then
