@@ -4,10 +4,14 @@ if [[ $# -eq 1 ]]; then
   selected="$(pwd)/$1"
 else
   # selected=$(find ~ ~/Devs ~/Devs/learn ~/Devs/college ~/Devs/sandbox ~/Devs/projects -mindepth 1 -maxdepth 1 -type d | fzf)
-  selected=$(fd ~ ~/Devs ~/Devs/learn ~/Devs/college ~/Devs/sandbox ~/Devs/projects \
-    -p ~ --min-depth 1 --max-depth 1 \
-    -t d -H \
-    -E '.git' -E node_modules | fzf --border --layout reverse-list --height ~100%)
+  # selected=$(fd ~ ~/Devs ~/Devs/learn ~/Devs/college ~/Devs/sandbox ~/Devs/projects \
+  #   -p ~ --min-depth 1 --max-depth 1 \
+  #   -t d -H \
+  #   -E '.git' -E node_modules | fzf --border --layout reverse-list --height ~100%)
+
+  dev=$(fd ~/Devs -p ~/Devs --min-depth 1 --max-depth 3 -t d -E '.git' -E node_modules)
+  home=$(fd ~ -p ~ --min-depth 1 --max-depth 1 -t d -H)
+  selected=$(echo -e "$dev\n$home" | fzf --border --height ~100%)
 fi
 
 if [[ -z $selected ]]; then
