@@ -91,12 +91,12 @@ run_cmd() {
   elif [[ "$1" == '--extend' ]]; then
     ans=$(confirm_selection &)
     if [[ $ans == "$yes" ]]; then
-      xrandr --output HDMI-A-0 --primary --auto --rotate normal --left-of eDP
+      xrandr --output HDMI-A-0 --primary --auto --rotate normal --left-of eDP --auto
     else
-      xrandr --output eDP --primary --auto --output HDMI-A-0 --auto --rotate normal --left-of eDP
+      xrandr --output eDP --primary --auto --output HDMI-A-0 --auto --rotate normal --left-of eDP --auto
     fi
   elif [[ "$1" == '--duplicate' ]]; then
-    xrandr --output eDP --primary --output HDMI-A-0 --auto --same-as eDP
+    xrandr --output eDP --primary --auto --output HDMI-A-0 --auto --same-as eDP
   elif [[ "$1" == '--secondscreen' ]]; then
     xrandr --output HDMI-A-0 --primary --auto --output eDP --off
   fi
