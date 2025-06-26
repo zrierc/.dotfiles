@@ -20,5 +20,32 @@ export MCFLY_RESULTS=25
 export MCFLY_PROMPT="❯"
 export MCFLY_HISTORY_LIMIT=5000
 
-# fzf settings
+# # Replace <C-r> shell history with intelligent search powered by McFly
+# eval "$(mcfly init zsh)"
+
+# FZF settings
 export FZF_DEFAULT_OPTS="--layout reverse"
+
+# Set up FZF key bindings and fuzzy completion
+source <(fzf --zsh)
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Bun completions
+[ -s "/home/zrie/.bun/_bun" ] && source "/home/zrie/.bun/_bun"
+
+# Bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Terraform
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
+
+# Kubectl
+source <(kubectl completion zsh)
+autoload -Uz compinit
+compinit
