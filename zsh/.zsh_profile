@@ -49,3 +49,9 @@ complete -o nospace -C /usr/bin/terraform terraform
 source <(kubectl completion zsh)
 autoload -Uz compinit
 compinit
+
+# Go
+export PATH="$PATH:/opt/go/bin"
+export GOPATH="$HOME/Devs/go"
+export GOBIN="$GOPATH/bin"
+export PATH="$PATH:$GOBIN"
