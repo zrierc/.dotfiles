@@ -12,6 +12,10 @@ alias minfetch="fastfetch -c ~/.config/fastfetch/config-min.jsonc"
 alias lg='lazygit'
 alias ts='tmux-sessionizer'
 
+# software/deps
+alias sqlite3='rlwrap sqlite3'
+alias sqlite='rlwrap sqlite3'
+
 ## in memoriam of Terry A. Davis
 # -Taken from TempleOS source code/repository
 godsWords() {
