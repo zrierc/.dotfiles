@@ -1,0 +1,92 @@
+/*****----- Global Properties -----*****/
+@import                          "~/.config/rofi/shared/colors.rasi"
+@import                          "~/.config/rofi/shared/fonts.rasi"
+
+
+* {
+    /* Set Rofi's base colors from your variables */
+    background-color: @background;
+    text-color:       @foreground;
+    border-color:     @selected;
+}
+
+/* The main window */
+window {
+    background-color: @background-color;
+    border:           2px;
+    border-radius:    10px;
+    border-color:     @border-color;
+    width:            600px;
+    padding:          16px;
+    location:         center;
+    anchor:           center;
+    transparency:     "real";
+}
+
+/* The main box that holds everything */
+mainbox {
+    border:  0;
+    padding: 0;
+}
+
+message {
+    border:       2px 0px 0px;
+    border-color: @border-color;
+    padding:      10px;
+}
+
+textbox {
+    text-color: @foreground;
+}
+
+/* The list of options */
+listview {
+    fixed-height: 0;
+    border:       2px 0px 0px;
+    border-color: @border-color;
+    spacing:      5px;
+    scrollbar:    false;
+    padding:      10px 0px 0px;
+}
+
+/* Individual elements in the list */
+element {
+    border:  0;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+/* Style for selected element, using your 'selected' and 'background' colors */
+element.selected {
+    background-color: @selected;
+    text-color:       @background;
+}
+
+/* The input bar at the top */
+inputbar {
+    spacing:    0;
+    padding:    1px;
+    children:   [ "prompt", "entry" ];
+}
+
+prompt {
+    background-color: @selected;
+    padding:          8px;
+    text-color:       @background;
+    border-radius:    5px;
+    margin:           0px 8px 0px 0px;
+}
+
+entry {
+    background-color: @background-alt;
+    text-color:       @foreground;
+    placeholder-color: @foreground;
+    expand:           true;
+    padding:          8px;
+    border-radius:    5px;
+}
