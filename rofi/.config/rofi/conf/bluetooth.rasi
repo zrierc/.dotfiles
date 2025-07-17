@@ -18,8 +18,9 @@ window {
     border-color:     @border-color;
     width:            600px;
     padding:          16px;
-    location:         center;
-    anchor:           center;
+    location:         north east;
+    anchor:           north east;
+    y-offset:         40px;
     transparency:     "real";
 }
 
