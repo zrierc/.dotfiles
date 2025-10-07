@@ -11,6 +11,23 @@ alias minfetch="fastfetch -c ~/.config/fastfetch/config-min.jsonc"
 # shortcut
 alias lg='lazygit'
 alias ts='tmux-sessionizer'
+alias bat='bat -P --theme-dark=Github --color=always'
+
+batdiff() {
+  if [[ $# -gt 0 ]]; then
+    git diff --name-only --relative --diff-filter=d -z "$@" | xargs -0 bat --diff
+  else
+    git diff --name-only --relative --diff-filter=d -z | xargs -0 bat --diff
+  fi
+}
+
+battail() {
+  tail -f $1 | bat --paging=never -l log
+}
+
+batgitshow() {
+  git show $1 | bat -l rs
+}
 
 # software/deps
 alias sqlite3='rlwrap sqlite3'
