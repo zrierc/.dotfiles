@@ -16,3 +16,10 @@ set("n", "<C-/>", "<cmd>normal gcc<cr>", { desc = "Toggle comment line", noremap
 set("n", "<C-_>", "<cmd>normal gcc<cr>", { desc = "Toggle comment line", noremap = true, silent = true })
 set("v", "<C-/>", "<cmd>normal gc<cr>", { desc = "Toggle comment multiple lines", noremap = true, silent = true })
 set("v", "<C-_>", "<cmd>normal gc<cr>", { desc = "Toggle comment multiple lines", noremap = true, silent = true })
+
+-- smooootttthhhhhhhh
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll down and center" })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up and center" })
+
+set("x", "<leader>p", [["_dP]], { desc = "Paste over selection" })
+set({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete to black hole register", silent = true, nowait = true })
