@@ -11,12 +11,13 @@ return {
   --     -- },
   --   },
   -- },
-  -- { "vague2k/vague.nvim" },
-  { "nyoom-engineering/oxocarbon.nvim" },
+  { "vague2k/vague.nvim" },
+  -- { "nyoom-engineering/oxocarbon.nvim" },
+  -- { "decaycs/decay.nvim" }, -- options: 'decay-dark', 'decay-light', 'decay-default', 'decayce'
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "oxocarbon",
+      colorscheme = "vague",
     },
   },
 }
