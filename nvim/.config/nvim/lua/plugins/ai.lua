@@ -43,6 +43,11 @@ return {
           model = "claude-sonnet-4",
         },
       },
+      behaviour = {
+        auto_suggestions = false,
+        auto_apply_diff_after_generation = false,
+        auto_approve_tool_permissions = false,
+      },
       input = {
         provider = "snacks",
         provider_opts = {
@@ -71,7 +76,6 @@ return {
       --- The below dependencies are optional,
       -- "nvim-mini/mini.pick", -- for file_selector provider mini.pick
       "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
-      "stevearc/dressing.nvim", -- for input provider dressing
       "folke/snacks.nvim", -- for input provider snacks
       "nvim-mini/mini.icons",
       "zbirenbaum/copilot.lua", -- for providers='copilot'
