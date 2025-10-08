@@ -11,7 +11,7 @@ export PATH=$HOME/.local/scripts:$PATH
 export PATH=$HOME/.local/bin:$PATH
 
 # start search dir and enter to tmux
-bindkey -s "^f" "^Qtmux-sessionizer^M"
+bindkey -s "^z" "^Qtmux-sessionizer^M"
 
 # McFly settings
 export MCFLY_KEY_SCHEME=vim
