@@ -42,6 +42,10 @@ Devs = "  Devs"
 [docker_context]
 symbol = " "
 
+[bun]
+symbol = " "
+style = "bold rose"
+
 [elixir]
 symbol = " "
 
