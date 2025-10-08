@@ -48,7 +48,7 @@ alias godsWords64="godsWords 64"
 alias godsWords100="godsWords 100"
 
 ## network stuff
-alias ping='ping -c 5'
+alias shortping='ping -c 5'
 alias fastping='ping -c 100 -s.2'
 alias ports='netstat -tulanp'
 
