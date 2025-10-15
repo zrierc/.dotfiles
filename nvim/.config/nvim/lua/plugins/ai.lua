@@ -35,12 +35,12 @@ return {
     ---@module 'avante'
     ---@type avante.Config
     opts = {
-      instructions_file = "avante.md",
+      instructions_file = "context.md",
       provider = "copilot",
       auto_suggestions_provider = "copilot",
       providers = {
         copilot = {
-          model = "claude-sonnet-4",
+          model = "claude-sonnet-4.5",
         },
       },
       behaviour = {
