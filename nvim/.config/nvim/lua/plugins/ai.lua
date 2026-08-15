@@ -20,6 +20,7 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
+    enabled = false,
     build = "bun install -g mcp-hub@latest", -- Installs `mcp-hub` node binary globally
     config = function()
       require("mcphub").setup()
@@ -30,7 +31,7 @@ return {
     build = vim.fn.has("win32") ~= 0 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
       or "make",
     event = "VeryLazy",
-    enabled = true,
+    enabled = false,
     version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
     ---@module 'avante'
     ---@type avante.Config
@@ -59,16 +60,16 @@ return {
       windows = {
         width = 40,
       },
-      system_prompt = function()
-        local hub = require("mcphub").get_hub_instance()
-        return hub and hub:get_active_servers_prompt() or ""
-      end,
-      -- Using function prevents requiring mcphub before it's loaded
-      custom_tools = function()
-        return {
-          require("mcphub.extensions.avante").mcp_tool(),
-        }
-      end,
+      -- system_prompt = function()
+      --   local hub = require("mcphub").get_hub_instance()
+      --   return hub and hub:get_active_servers_prompt() or ""
+      -- end,
+      -- -- Using function prevents requiring mcphub before it's loaded
+      -- custom_tools = function()
+      --   return {
+      --     require("mcphub.extensions.avante").mcp_tool(),
+      --   }
+      -- end,
     },
     dependencies = {
       "nvim-lua/plenary.nvim",
