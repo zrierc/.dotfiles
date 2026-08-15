@@ -1,3 +1,16 @@
+-- oxlint fix-on-save (no-op in projects without oxlint; fires only when an oxlint client is attached)
+vim.api.nvim_create_autocmd("BufWritePre", {
+  callback = function()
+    for _, client in ipairs(vim.lsp.get_clients({ name = "oxlint", bufnr = 0 })) do
+      client:exec_cmd({
+        title = "Apply Oxlint automatic fixes",
+        command = "oxc.fixAll",
+        arguments = { { uri = vim.uri_from_bufnr(0) } },
+      })
+    end
+  end,
+})
+
 return {
   -- change layout preset for hint keybinding
   {
@@ -13,7 +26,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
-      servers = { eslint = {} },
+      servers = { eslint = {}, oxlint = {} },
       setup = {
         eslint = function()
           require("lazyvim.util").lsp.on_attach(function(client)
