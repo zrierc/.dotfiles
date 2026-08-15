@@ -21,6 +21,8 @@ return {
         "vue",
         "svelte",
         "astro",
+        "markdown",
+        "markdown.mdx",
       }) do
         opts.formatters_by_ft[ft] = opts.formatters_by_ft[ft] or {}
         table.insert(opts.formatters_by_ft[ft], "oxfmt")
